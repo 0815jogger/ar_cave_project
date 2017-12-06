@@ -1,7 +1,7 @@
-# TEMP/
-# Library/EditorInstance.json
-# Assets/StreamingAssets/build_info.txt
+# custom ignores
+Assets/StreamingAssets/build_info.txt
 
+# standard folders
 [Ll]ibrary/
 [Tt]emp/
 [Oo]bj/
