@@ -372,7 +372,7 @@ public class Reporter : MonoBehaviour {
 
 		showClearOnNewSceneLoadedButton 		= (PlayerPrefs.GetInt( "Reporter_showClearOnNewSceneLoadedButton" ,1)==1)?true:false;
 		showTimeButton 		= (PlayerPrefs.GetInt( "Reporter_showTimeButton",1 )==1)?true:false;
-		showSceneButton 	= (PlayerPrefs.GetInt( "Reporter_showSceneButton",1 )==1)?true:false;
+	    showSceneButton 	= (PlayerPrefs.GetInt( "Reporter_showSceneButton",1 )==1)?true:false;
 		showMemButton 		= (PlayerPrefs.GetInt( "Reporter_showMemButton",1 )==1)?true:false;
 		showFpsButton 		= (PlayerPrefs.GetInt( "Reporter_showFpsButton",1 )==1)?true:false;
 		showSearchText 		= (PlayerPrefs.GetInt( "Reporter_showSearchText",1 )==1)?true:false;
@@ -2036,7 +2036,7 @@ public class Reporter : MonoBehaviour {
             url = System.IO.Path.Combine(streamingAssetsPath, prefFile);
         }
 
-        if (Application.platform != RuntimePlatform.OSXWebPlayer && Application.platform != RuntimePlatform.WindowsWebPlayer)
+       // if (Application.platform != RuntimePlatform.OSXWebPlayer && Application.platform != RuntimePlatform.WindowsWebPlayer)
             if (!url.Contains("://"))
                 url = "file://" + url;
 
