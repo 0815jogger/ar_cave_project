@@ -2,12 +2,15 @@
 Assets/StreamingAssets/build_info.txt
 
 # standard folders
-[Ll]ibrary/
+[Ll]ibrary/*
 [Tt]emp/
 [Oo]bj/
 [Bb]uild/
 [Bb]uilds/
 Assets/AssetStoreTools*
+
+# metadata folder
+[Ll]ibrary/metadata/*/*
 
 # Visual Studio 2015 cache directory
 /.vs/

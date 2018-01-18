@@ -76,12 +76,18 @@ public class NewBehaviourScript : MonoBehaviour {
                 {
                     if (_Data[idx].HandRightState != HandState.Closed)
                     {
+                        float horizontal = 0;
+                        /*
                         float horizontal =
                             (float)(_Data[idx].Joints[JointType.HandRight].Position.X
                             * 0.1);
+                        */
+                        
+                        //float vertical = 0;
                         float vertical =
                             (float)(_Data[idx].Joints[JointType.HandRight].Position.Y
                             * 0.1);
+
 
                         if (firstdeep == -1)
                         {
@@ -89,15 +95,22 @@ public class NewBehaviourScript : MonoBehaviour {
                                 (float)(_Data[idx].Joints[JointType.HandRight].Position.Z
                                 * 0.1);
                         }
+                        float deep = 0;
+                        /*
                         float deep =
                             (float)(_Data[idx].Joints[JointType.HandRight].Position.Z
                             * 0.1) - firstdeep;
-
-                        this.gameObject.transform.position = new Vector3(
-                            this.gameObject.transform.position.x + horizontal,
-                            this.gameObject.transform.position.y + vertical,
-                            this.transform.position.z + deep);
+                        */
+                
+                        this.gameObject.transform.position = new Vector3
+                            (
+                                this.gameObject.transform.position.x + horizontal,
+                                this.gameObject.transform.position.y + vertical,
+                                this.transform.position.z + deep
+                            );
                     }
+                    /*
+                     
                     if (_Data[idx].HandLeftState != HandState.Closed)
                     {
                         float angley =
@@ -108,11 +121,16 @@ public class NewBehaviourScript : MonoBehaviour {
                             (float)(_Data[idx].Joints[JointType.HandLeft].Position.Z);
 
                         this.gameObject.transform.rotation =
-                            Quaternion.Euler(
-                            this.gameObject.transform.rotation.x + anglex * 100,
-                            this.gameObject.transform.rotation.y + angley * 100,
-                            this.gameObject.transform.rotation.z + anglez * 100);
+                            Quaternion.Euler
+                            (
+                                this.gameObject.transform.rotation.x + anglex * 100,
+                                this.gameObject.transform.rotation.y + angley * 100,
+                                this.gameObject.transform.rotation.z + anglez * 100
+                            );
+                      
                     }
+
+                    */
                 }
             }
         }
