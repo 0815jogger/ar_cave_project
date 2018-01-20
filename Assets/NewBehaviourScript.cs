@@ -8,7 +8,7 @@ public class NewBehaviourScript : MonoBehaviour {
     private KinectSensor _Sensor;
     private BodyFrameReader _Reader;
     private Body[] _Data = null;
-    float firstdeep = 0;
+    float firstdeep = -1;
 
 
     // Use this for initialization
@@ -74,7 +74,7 @@ public class NewBehaviourScript : MonoBehaviour {
                 }
                 if (idx > -1)
                 {
-                    if (_Data[idx].HandRightState != HandState.Closed)
+                    if (_Data[idx].HandRightState == HandState.Open)
                     {
                         float horizontal = 0;
                         /*
@@ -91,16 +91,18 @@ public class NewBehaviourScript : MonoBehaviour {
 
                         if (firstdeep == -1)
                         {
-                            float firstdeep =
+                            firstdeep =
                                 (float)(_Data[idx].Joints[JointType.HandRight].Position.Z
                                 * 0.1);
+                            Debug.Log(firstdeep);
+                            //System.Console.WriteLine(firstdeep);
                         }
-                        float deep = 0;
-                        /*
+                        //float deep = 0;
+
                         float deep =
                             (float)(_Data[idx].Joints[JointType.HandRight].Position.Z
                             * 0.1) - firstdeep;
-                        */
+                        
                 
                         this.gameObject.transform.position = new Vector3
                             (
