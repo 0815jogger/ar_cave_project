@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Windows.Kinect;
 
-public class NewBehaviourScript : MonoBehaviour {
+public class RotateBehaviourScript : MonoBehaviour
+{
 
     private KinectSensor _Sensor;
     private BodyFrameReader _Reader;
@@ -74,43 +75,26 @@ public class NewBehaviourScript : MonoBehaviour {
                 }
                 if (idx > -1)
                 {
-                    if (_Data[idx].HandRightState == HandState.Open)
+                     
+                    if (_Data[idx].HandLeftState != HandState.Closed)
                     {
-                        float horizontal = 0;
-                        /*
-                        float horizontal =
-                            (float)(_Data[idx].Joints[JointType.HandRight].Position.X
-                            * 0.1);
-                        */
-                        
-                        //float vertical = 0;
-                        float vertical =
-                            (float)(_Data[idx].Joints[JointType.HandRight].Position.Y
-                            * 0.1);
+                        float angley =
+                            (float)(_Data[idx].Joints[JointType.HandLeft].Position.X);
+                        float anglex =
+                            (float)(_Data[idx].Joints[JointType.HandLeft].Position.Y);
+                        float anglez =
+                            (float)(_Data[idx].Joints[JointType.HandLeft].Position.Z);
 
-
-                        if (firstdeep == -1)
-                        {
-                            firstdeep =
-                                (float)(_Data[idx].Joints[JointType.HandRight].Position.Z
-                                * 0.1);
-                            Debug.Log(firstdeep);
-                            //System.Console.WriteLine(firstdeep);
-                        }
-                        //float deep = 0;
-
-                        float deep =
-                            (float)(_Data[idx].Joints[JointType.HandRight].Position.Z
-                            * 0.1) - firstdeep;
-                        
-                
-                        this.gameObject.transform.position = new Vector3
+                        this.gameObject.transform.rotation =
+                            Quaternion.Euler
                             (
-                                this.gameObject.transform.position.x + horizontal,
-                                this.gameObject.transform.position.y + vertical,
-                                this.transform.position.z + deep
+                                this.gameObject.transform.rotation.x + anglex * 100,
+                                this.gameObject.transform.rotation.y + angley * 100,
+                                this.gameObject.transform.rotation.z + anglez * 100
                             );
+                      
                     }
+
                 }
             }
         }
