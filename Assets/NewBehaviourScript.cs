@@ -104,7 +104,7 @@ public class NewBehaviourScript : MonoBehaviour {
                             (
                                 this.gameObject.transform.position.x + horizontal,
                                 this.gameObject.transform.position.y + vertical,
-                                this.transform.position.z + deep
+                                this.transform.position.z - deep
                             );
                     }
                 }
