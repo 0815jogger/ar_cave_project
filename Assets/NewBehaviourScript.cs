@@ -76,14 +76,10 @@ public class NewBehaviourScript : MonoBehaviour {
                 {
                     if (_Data[idx].HandRightState == HandState.Open)
                     {
-                        float horizontal = 0;
-                        /*
                         float horizontal =
                             (float)(_Data[idx].Joints[JointType.HandRight].Position.X
                             * 0.1);
-                        */
-                        
-                        //float vertical = 0;
+
                         float vertical =
                             (float)(_Data[idx].Joints[JointType.HandRight].Position.Y
                             * 0.1);
