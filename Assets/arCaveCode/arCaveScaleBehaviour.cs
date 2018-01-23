@@ -81,11 +81,11 @@ public class arCaveScaleBehaviour : MonoBehaviour
                         float sizey = (float)(_Data[idx].Joints[JointType.HandRight].Position.Y);
                         float sizez = (float)(_Data[idx].Joints[JointType.HandRight].Position.Z);
 
-                        this.gameObject.transform.position = new Vector3
+                        this.gameObject.transform.localScale = new Vector3
                             (
-                                this.gameObject.transform.position.Scale.X + sizex,
-                                this.gameObject.transform.position.Scale.Y + sizey,
-                                this.gameObject.transform.position.Scale.Z + sizez
+                                this.gameObject.transform.localScale.x + sizex,
+                                this.gameObject.transform.localScale.y + sizey,
+                                this.gameObject.transform.localScale.z + sizez
                             );
                     }
                 }
