@@ -1,5 +1,6 @@
 # custom ignores
 Assets/StreamingAssets/build_info.txt
+Assets/*.meta
 
 # standard folders
 [Ll]ibrary/*
