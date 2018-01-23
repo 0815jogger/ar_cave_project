@@ -76,14 +76,14 @@ public class arCaveRotateBehaviour : MonoBehaviour
                 if (idx > -1)
                 {
                      
-                    if (_Data[idx].HandLeftState != HandState.Closed)
+                    if (_Data[idx].HandRightState != HandState.Closed)
                     {
                         float anglex =
-                            (float)(_Data[idx].Joints[JointType.HandLeft].Position.X);
+                            (float)(_Data[idx].Joints[JointType.HandRight].Position.X);
                         float angley =
-                            (float)(_Data[idx].Joints[JointType.HandLeft].Position.Y);
+                            (float)(_Data[idx].Joints[JointType.HandRight].Position.Y);
                         float anglez =
-                            (float)(_Data[idx].Joints[JointType.HandLeft].Position.Z);
+                            (float)(_Data[idx].Joints[JointType.HandRight].Position.Z);
 
                         this.gameObject.transform.rotation =
                             Quaternion.Euler
