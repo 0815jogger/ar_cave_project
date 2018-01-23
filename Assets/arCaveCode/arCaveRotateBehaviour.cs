@@ -79,9 +79,9 @@ public class arCaveRotateBehaviour : MonoBehaviour
                     if (_Data[idx].HandLeftState != HandState.Closed)
                     {
                         float anglex =
-                            (float)(_Data[idx].Joints[JointType.HandLeft].Position.Y);
-                        float angley =
                             (float)(_Data[idx].Joints[JointType.HandLeft].Position.X);
+                        float angley =
+                            (float)(_Data[idx].Joints[JointType.HandLeft].Position.Y);
                         float anglez =
                             (float)(_Data[idx].Joints[JointType.HandLeft].Position.Z);
 
