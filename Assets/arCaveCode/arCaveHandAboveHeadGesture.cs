@@ -83,7 +83,7 @@ public class arCaveTestGesture : MonoBehaviour {
                 {
                     if (_Data[idx].HandRightState != HandState.Closed)
                     {
-
+                        
                     }
                 }
             }
