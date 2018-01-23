@@ -77,9 +77,9 @@ public class arCaveScaleBehaviour : MonoBehaviour
                 {
                     if (_Data[idx].HandRightState == HandState.Open)
                     {
-                        float sizex = (float)(_Data[idx].Joints[JointType.HandRight].Position.X);
-                        float sizey = (float)(_Data[idx].Joints[JointType.HandRight].Position.Y);
-                        float sizez = (float)(_Data[idx].Joints[JointType.HandRight].Position.Z);
+                        float sizex = (float)(_Data[idx].Joints[JointType.HandRight].Position.X * 0.1);
+                        float sizey = (float)(_Data[idx].Joints[JointType.HandRight].Position.Y * 0.1);
+                        float sizez = (float)(_Data[idx].Joints[JointType.HandRight].Position.Z * 0.1);
 
                         this.gameObject.transform.localScale = new Vector3
                             (
