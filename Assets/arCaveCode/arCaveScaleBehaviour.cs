@@ -1,13 +1,15 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Windows.Kinect;
 
-public class arCaveInitialScript : MonoBehaviour
+public class arCaveScaleBehaviour : MonoBehaviour
 {
+
     private KinectSensor _Sensor;
     private BodyFrameReader _Reader;
     private Body[] _Data = null;
+    float firstdeep = -1;
 
 
     // Use this for initialization
@@ -45,7 +47,6 @@ public class arCaveInitialScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    // implement here the behaviour when hand is opend or closed or sth like that
     void Update()
     {
         if (_Reader != null)
@@ -74,9 +75,18 @@ public class arCaveInitialScript : MonoBehaviour
                 }
                 if (idx > -1)
                 {
-                    if (_Data[idx].HandRightState != HandState.Closed)
+                    if (_Data[idx].HandRightState == HandState.Open)
                     {
-                     
+                        float sizex = (float)(_Data[idx].Joints[JointType.HandRight].Position.X);
+                        float sizey = (float)(_Data[idx].Joints[JointType.HandRight].Position.Y);
+                        float sizez = (float)(_Data[idx].Joints[JointType.HandRight].Position.Z);
+
+                        this.gameObject.transform.position = new Vector3
+                            (
+                                this.gameObject.transform.position.Scale.X + sizex,
+                                this.gameObject.transform.position.Scale.Y + sizey,
+                                this.gameObject.transform.position.Scale.Z + sizez
+                            );
                     }
                 }
             }
