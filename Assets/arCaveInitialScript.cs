@@ -8,6 +8,7 @@ public class arCaveInitialScript : MonoBehaviour
 
     private KinectSensor _Sensor;
     private BodyFrameReader _Reader;
+    private Body[] _Data = null;
 
 
     // Use this for initialization
@@ -48,6 +49,39 @@ public class arCaveInitialScript : MonoBehaviour
     // implement here the behaviour when hand is opend or closed or sth like that
     void Update()
     {
-        
+        if (_Reader != null)
+        {
+            var frame = _Reader.AcquireLatestFrame();
+
+            if (frame != null)
+            {
+                if (_Data == null)
+                {
+                    _Data = new Body[_Sensor.BodyFrameSource.BodyCount];
+                }
+
+                frame.GetAndRefreshBodyData(_Data);
+
+                frame.Dispose();
+                frame = null;
+
+                int idx = -1;
+                for (int i = 0; i < _Sensor.BodyFrameSource.BodyCount; i++)
+                {
+                    if (_Data[i].IsTracked)
+                    {
+                        idx = i;
+                    }
+                }
+                if (idx > -1)
+                {
+
+                    if (_Data[idx].HandRightState != HandState.Closed)
+                    {
+                     
+                    }
+                }
+            }
+        }
     }
 }
