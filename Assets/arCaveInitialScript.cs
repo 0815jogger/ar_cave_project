@@ -45,6 +45,7 @@ public class arCaveInitialScript : MonoBehaviour
     }
 
     // Update is called once per frame
+    // implement here the behaviour when hand is opend or closed or sth like that
     void Update()
     {
         
