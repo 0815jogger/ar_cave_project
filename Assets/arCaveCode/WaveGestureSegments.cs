@@ -12,6 +12,7 @@ namespace KinectSimpleGesture
         public GesturePartResult Update(Skeleton skeleton)
         {
             // Hand above elbow
+            /*
             if (skeleton.Joints[JointType.HandRight].Position.Y >
                 skeleton.Joints[JointType.ElbowRight].Position.Y)
             {
@@ -22,6 +23,7 @@ namespace KinectSimpleGesture
                     return GesturePartResult.Succeeded;
                 }
             }
+            */
 
             // Hand dropped
             return GesturePartResult.Failed;
@@ -33,6 +35,7 @@ namespace KinectSimpleGesture
         public GesturePartResult Update(Skeleton skeleton)
         {
             // Hand above elbow
+            /*
             if (skeleton.Joints[JointType.HandRight].Position.Y >
                 skeleton.Joints[JointType.ElbowRight].Position.Y)
             {
@@ -43,6 +46,7 @@ namespace KinectSimpleGesture
                     return GesturePartResult.Succeeded;
                 }
             }
+            */
 
             // Hand dropped
             return GesturePartResult.Failed;
