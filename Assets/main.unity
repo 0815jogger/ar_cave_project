@@ -439,6 +439,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _jointType: 7
   _bodySourceManager: {fileID: 1626165365}
+  multiplier: 10
 --- !u!114 &656448744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -742,7 +743,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 124deea0f47d3ec4aa07a6abbebcb741, type: 2}
+  - {fileID: 2100000, guid: bdb98d0273f064648bab7367cf4716ec, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

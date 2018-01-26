@@ -7,6 +7,7 @@ public class JointPosition : MonoBehaviour
     public Windows.Kinect.JointType _jointType;
     public GameObject _bodySourceManager;
     private BodySourceManager _bodyManager;
+    public float multiplier = 10f;
 
 	// Use this for initialization
 	void Start () 
@@ -47,7 +48,7 @@ public class JointPosition : MonoBehaviour
                //this.gameObject.transform.position = new Vector3
                // this.gameObject.transform.localPosition =  body.Joints[_jointType].Position;
                 var pos = body.Joints[_jointType].Position;
-               this.gameObject.transform.position = new Vector3(pos.X, pos.Y, pos.Z);
+               this.gameObject.transform.position = new Vector3(pos.X * multiplier, pos.Y * multiplier, pos.Z * multiplier);
                 break;
             }
         }
