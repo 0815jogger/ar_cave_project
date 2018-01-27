@@ -47,7 +47,7 @@ public class JointPosition : MonoBehaviour
             {
                 if (body.Joints[JointType.HandLeft].Position.Y > body.Joints[JointType.Head].Position.Y)
                 {
-                    Debug.Log("Hey where's your hand ??");
+                    Debug.Log("Hey, where's your hand ??");
                 }
                 else
                 {
