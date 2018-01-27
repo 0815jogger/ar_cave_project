@@ -45,6 +45,10 @@ public class JointPosition : MonoBehaviour
 
             if (body.IsTracked)
             {
+                if (body.Joints[JointType.HandLeft].Position.Y >= body.Joints[JointType.Head].Position.Y)
+                {
+                    Debug.Log("Hey where's your hand ??");
+                }
                //this.gameObject.transform.position = new Vector3
                // this.gameObject.transform.localPosition =  body.Joints[_jointType].Position;
                 var pos = body.Joints[_jointType].Position;
