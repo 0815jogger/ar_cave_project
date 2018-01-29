@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Windows.Kinect;
 
-public class arCaveTranslateBehaviour : MonoBehaviour {
+public class ArCaveTranslateBehaviour : MonoBehaviour
+{
 
     private KinectSensor _Sensor;
     private BodyFrameReader _Reader;

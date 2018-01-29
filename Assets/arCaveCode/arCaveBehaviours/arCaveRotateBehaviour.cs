@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Windows.Kinect;
 
-public class arCaveRotateBehaviour : MonoBehaviour
+public class ArCaveRotateBehaviour : MonoBehaviour
 {
 
     private KinectSensor _Sensor;
