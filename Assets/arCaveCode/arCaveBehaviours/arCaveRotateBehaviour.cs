@@ -5,12 +5,10 @@ using Windows.Kinect;
 
 public class ArCaveRotateBehaviour : MonoBehaviour
 {
-
     private KinectSensor _Sensor;
     private BodyFrameReader _Reader;
     private Body[] _Data = null;
     float firstdeep = -1;
-
 
     // Use this for initialization
     void Start()

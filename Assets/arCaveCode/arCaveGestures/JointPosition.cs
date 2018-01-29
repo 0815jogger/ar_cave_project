@@ -7,6 +7,7 @@ public class JointPosition : MonoBehaviour
     public Windows.Kinect.JointType _jointType;
     public GameObject _bodySourceManager;
     private BodySourceManager _bodyManager;
+    private ArCaveTranslateBehaviour _translateBehaviour;
     public float multiplier = 10f;
     public float firstdeep = -1;
 
@@ -49,6 +50,8 @@ public class JointPosition : MonoBehaviour
                 if (body.Joints[JointType.HandLeft].Position.Y > body.Joints[JointType.Head].Position.Y)
                 {
                     Debug.Log("Hey, where's your hand ??");
+                    //_translateBehaviour.CaveTranslate(this.gameObject);
+
                     if (body.HandRightState == HandState.Open)
                     {
                         float horizontal =
