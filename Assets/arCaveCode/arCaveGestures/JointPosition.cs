@@ -48,6 +48,9 @@ public class JointPosition : MonoBehaviour
                 if (body.Joints[JointType.HandLeft].Position.Y > body.Joints[JointType.Head].Position.Y)
                 {
                     Debug.Log("Hey, where's your hand ??");
+                    var pos = body.Joints[_jointType].Position;
+                    this.gameObject.transform.position = new Vector3(pos.X * multiplier, pos.Y * multiplier, pos.Z * multiplier);
+
                 }
                 else
                 {
@@ -56,8 +59,9 @@ public class JointPosition : MonoBehaviour
 
                 //this.gameObject.transform.position = new Vector3
                 // this.gameObject.transform.localPosition =  body.Joints[_jointType].Position;
-                var pos = body.Joints[_jointType].Position;
-                this.gameObject.transform.position = new Vector3(pos.X * multiplier, pos.Y * multiplier, pos.Z * multiplier);
+
+                //var pos = body.Joints[_jointType].Position;
+                //this.gameObject.transform.position = new Vector3(pos.X * multiplier, pos.Y * multiplier, pos.Z * multiplier);
                 
                 break;
             }
