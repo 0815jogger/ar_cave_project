@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using Windows.Kinect;
 
 public class arCaveScaleBehaviour : MonoBehaviour
@@ -8,85 +6,42 @@ public class arCaveScaleBehaviour : MonoBehaviour
     private KinectSensor _Sensor;
     private BodyFrameReader _Reader;
     private Body[] _Data = null;
-    float firstdeep = -1;
-
-    // Use this for initialization
-    void Start()
-    {
-        _Sensor = KinectSensor.GetDefault();
-
-        if (_Sensor != null)
-        {
-            _Reader = _Sensor.BodyFrameSource.OpenReader();
-
-            if (!_Sensor.IsOpen)
-            {
-                _Sensor.Open();
-            }
-        }
-    }
-
-    void OnApplicationQuit()
-    {
-        if (_Reader != null)
-        {
-            _Reader.Dispose();
-            _Reader = null;
-        }
-
-        if (_Sensor != null)
-        {
-            if (_Sensor.IsOpen)
-            {
-                _Sensor.Close();
-            }
-            _Sensor = null;
-        }
-    }
+    public BodySourceManager _bodySourceManager;
 
     // Update is called once per frame
-    void Update()
+    public void CaveScale(GameObject gameObject)
     {
-        if (_Reader != null)
+        Debug.Log("Hi there");
+        if (_bodySourceManager == null)
         {
-            var frame = _Reader.AcquireLatestFrame();
+            return;
+        }
 
-            if (frame != null)
+        Body[] data = _bodySourceManager.GetData();
+        if (data == null)
+        {
+            return;
+        }
+
+        foreach (var body in data)
+        {
+            if (body == null)
             {
-                if (_Data == null)
-                {
-                    _Data = new Body[_Sensor.BodyFrameSource.BodyCount];
-                }
+                continue;
+            }
 
-                frame.GetAndRefreshBodyData(_Data);
+            if (body.HandRightState == HandState.Open)
+            {
+                float sizex = (float)(body.Joints[JointType.HandRight].Position.X * 0.1);
+                float sizey = (float)(body.Joints[JointType.HandRight].Position.Y * 0.1);
+                float sizez = (float)(body.Joints[JointType.HandRight].Position.Z * 0.1);
 
-                frame.Dispose();
-                frame = null;
-
-                int idx = -1;
-                for (int i = 0; i < _Sensor.BodyFrameSource.BodyCount; i++)
-                {
-                    if (_Data[i].IsTracked)
-                    {
-                        idx = i;
-                    }
-                }
-                if (idx > -1)
-                {
-                    if (_Data[idx].HandRightState == HandState.Open)
-                    {
-                        float sizex = (float)(_Data[idx].Joints[JointType.HandRight].Position.X * 0.1);
-                        float sizey = (float)(_Data[idx].Joints[JointType.HandRight].Position.Y * 0.1);
-                        float sizez = (float)(_Data[idx].Joints[JointType.HandRight].Position.Z * 0.1);
-
-                        this.gameObject.transform.localScale = new Vector3
-                            (
-                                this.gameObject.transform.localScale.x + sizex,
-                                this.gameObject.transform.localScale.y + sizex,
-                                this.gameObject.transform.localScale.z + sizex
-                            );
-                    }
-                }
+                this.gameObject.transform.localScale = new Vector3
+                    (
+                        this.gameObject.transform.localScale.x + sizex,
+                        this.gameObject.transform.localScale.y + sizex,
+                        this.gameObject.transform.localScale.z + sizex
+                    );
             }
         }
     }
