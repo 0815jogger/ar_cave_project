@@ -13,7 +13,7 @@ public class JointPosition : MonoBehaviour
     private HandOpenRecognizer handOpenRecognizer;
 
     private int modus = 0;
-    string[] modusText = { "...", "Translation", "Rotation", "Scale" };
+    string[] modusText = { "Pause", "Translation", "Rotation", "Scale" };
     public string gestureText = "Mode: ";
     public string gestureMode;
 
