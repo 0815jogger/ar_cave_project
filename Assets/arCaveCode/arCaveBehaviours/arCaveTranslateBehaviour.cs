@@ -47,9 +47,7 @@ public class arCaveTranslateBehaviour : MonoBehaviour
                         (float)(body.Joints[JointType.HandRight].Position.Z
                         * 0.1);
                     Debug.Log(firstdeep);
-                    //System.Console.WriteLine(firstdeep);
                 }
-                //float deep = 0;
 
                 float deep =
                     (float)(body.Joints[JointType.HandRight].Position.Z
