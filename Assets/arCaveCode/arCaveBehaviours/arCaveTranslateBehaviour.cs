@@ -3,11 +3,7 @@ using Windows.Kinect;
 
 public class arCaveTranslateBehaviour : MonoBehaviour
 {
-    private KinectSensor _Sensor;
-    private BodyFrameReader _Reader;
-    private Body[] _Data = null;
     float firstdeep = -1;
-    public BodySourceManager _bodySourceManager; 
 
     public void CaveTranslate(GameObject gameObject, Body body)
     {
