@@ -375,7 +375,6 @@ GameObject:
   m_Component:
   - component: {fileID: 656448740}
   - component: {fileID: 656448743}
-  - component: {fileID: 656448741}
   m_Layer: 0
   m_Name: mcVoxel
   m_TagString: Untagged
@@ -402,18 +401,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &656448741
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 656448739}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce49b0be6bdd9984cab826b2e2c7d81b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _bodySourceManager: {fileID: 1626165366}
 --- !u!114 &656448743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -425,12 +412,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91aed21cdadd7cc4491b72dff053ac68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _jointType: 7
   _bodySourceManager: {fileID: 1626165366}
-  _translate: {fileID: 656448741}
-  multiplier: 10
-  firstdeep: -1
-  mcVoxel: {fileID: 656448739}
   gestureText: 'Detected Gesture: '
   gestureMode: 
 --- !u!1 &871087032

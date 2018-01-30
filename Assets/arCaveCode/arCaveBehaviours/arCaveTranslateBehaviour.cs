@@ -34,7 +34,7 @@ public class arCaveTranslateBehaviour : MonoBehaviour
             (
                 gameObject.transform.position.x + horizontal,
                 gameObject.transform.position.y + vertical,
-                transform.position.z - deep
+                gameObject.transform.position.z - deep
             );
     }
 }

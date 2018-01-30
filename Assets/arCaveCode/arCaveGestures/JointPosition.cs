@@ -3,14 +3,15 @@ using Windows.Kinect;
 
 public class JointPosition : MonoBehaviour 
 {
-    public Windows.Kinect.JointType _jointType;
     public BodySourceManager _bodySourceManager;
-    public arCaveTranslateBehaviour _translate;
-    public float multiplier = 10f;
-    public float firstdeep = -1;
-    public GameObject mcVoxel;
+
+    private arCaveTranslateBehaviour _translate = new arCaveTranslateBehaviour();
+    private arCaveRotateBehaviour _rotate = new arCaveRotateBehaviour();
+    private arCaveScaleBehaviour _scale = new arCaveScaleBehaviour();
+
     private WaveRecognizer waveRecognizer;
     private HandOpenRecognizer handOpenRecognizer;
+
     private int modus = 0;
     public string gestureText = "Detected Gesture: ";
     public string gestureMode;
@@ -34,27 +35,34 @@ public class JointPosition : MonoBehaviour
         GUI.Label(new Rect(10, 10, 140, 20), gestureMode, largeFont);
     }
 
-	
-	// Update is called once per frame
-	void Update () 
+
+    // Update is called once per frame
+    void Update()
     {
         waveRecognizer.Update();
         if (waveRecognizer.IsActive())
         {
             waveRecognizer.Reset();
-            modus = (modus + 1) % 2;
+            modus = (modus + 1) % 4;
             gestureMode = gestureText + modus.ToString();
         }
 
-        switch (modus)
+
+        if (handOpenRecognizer.IsActive())
         {
-            case 1:
-                if (handOpenRecognizer.IsActive())
-                {
-                    Body body = handOpenRecognizer.GetBody();
+            Body body = handOpenRecognizer.GetBody();
+            switch (modus)
+            {
+                case 1:
                     _translate.CaveTranslate(this.gameObject, body);
-                }
-                break;
+                    break;
+                case 2:
+                    _rotate.CaveRotate(this.gameObject, body);
+                    break;
+                case 3:
+                    _scale.CaveScale(this.gameObject, body);
+                    break;
+            }
         }
         
 	}
