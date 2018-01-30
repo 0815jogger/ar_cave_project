@@ -8,7 +8,7 @@ public abstract class Recognizer
         this.bodySourceManager = bodySourceManager;
     }
 
-    protected Body GetBody()
+    public Body GetBody()
     {
         Body[] data = this.bodySourceManager.GetData();
         if (data == null)
