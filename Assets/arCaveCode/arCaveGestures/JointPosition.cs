@@ -5,8 +5,7 @@ using Windows.Kinect;
 public class JointPosition : MonoBehaviour 
 {
     public Windows.Kinect.JointType _jointType;
-    public GameObject _bodySourceManager;
-    private BodySourceManager _bodyManager;
+    public BodySourceManager _bodySourceManager;
     public arCaveTranslateBehaviour _translate;
     public float multiplier = 10f;
     public float firstdeep = -1;
@@ -24,14 +23,8 @@ public class JointPosition : MonoBehaviour
         {
             return;
         }
-        
-        _bodyManager = _bodySourceManager.GetComponent<BodySourceManager>();
-        if (_bodyManager == null)
-        {
-            return;
-        }
 
-        Body[] data = _bodyManager.GetData();
+        Body[] data = _bodySourceManager.GetData();
         if (data == null)
         {
             return;
@@ -50,7 +43,7 @@ public class JointPosition : MonoBehaviour
                 if (body.Joints[JointType.HandLeft].Position.Y > body.Joints[JointType.Head].Position.Y)
                 {
                     Debug.Log("Hey, where's your hand ??");
-                    _translate.CaveTranslate(this.gameObject, _bodyManager);
+                    _translate.CaveTranslate(this.gameObject);
 
                     /*
                     if (body.HandRightState == HandState.Open)

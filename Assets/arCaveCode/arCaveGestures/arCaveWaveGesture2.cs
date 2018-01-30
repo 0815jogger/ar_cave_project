@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace KinectSimpleGesture
 {
-    public class arCaveWaveGesture : MonoBehaviour
+    public class ArCaveWaveGesture2 : MonoBehaviour
     {
         private int count = 0;
         

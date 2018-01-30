@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using Windows.Kinect;
 
 public class arCaveTranslateBehaviour : MonoBehaviour
@@ -9,25 +7,17 @@ public class arCaveTranslateBehaviour : MonoBehaviour
     private BodyFrameReader _Reader;
     private Body[] _Data = null;
     float firstdeep = -1;
-    public GameObject _bodySourceManager;
-   
+    public BodySourceManager _bodySourceManager; 
 
-    public void CaveTranslate(GameObject gameObject, BodySourceManager _bodyManager)
+    public void CaveTranslate(GameObject gameObject)
     {
         Debug.Log("Hi there");
-
         if (_bodySourceManager == null)
         {
             return;
         }
 
-        _bodyManager = _bodySourceManager.GetComponent<BodySourceManager>();
-        if (_bodyManager == null)
-        {
-            return;
-        }
-
-        Body[] data = _bodyManager.GetData();
+        Body[] data = _bodySourceManager.GetData();
         if (data == null)
         {
             return;
