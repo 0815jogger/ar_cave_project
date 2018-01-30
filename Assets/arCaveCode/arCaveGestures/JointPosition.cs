@@ -13,8 +13,10 @@ public class JointPosition : MonoBehaviour
     private HandOpenRecognizer handOpenRecognizer;
 
     private int modus = 0;
-    public string gestureText = "Detected Gesture: ";
+    public string gestureText = "Mode: ";
     public string gestureMode;
+
+    string[] modusText = {"...", "Translation", "Rotation", "Scale" };
     GUIStyle largeFont;
 
 
@@ -32,7 +34,8 @@ public class JointPosition : MonoBehaviour
         largeFont = new GUIStyle();
         largeFont.fontSize = 20;
         largeFont.normal.textColor = Color.red;
-        GUI.Label(new Rect(10, 10, 140, 20), gestureMode, largeFont);
+
+        GUI.Label(new Rect(100, 10, 140, 20), gestureMode, largeFont);
     }
 
 
@@ -44,7 +47,7 @@ public class JointPosition : MonoBehaviour
         {
             waveRecognizer.Reset();
             modus = (modus + 1) % 4;
-            gestureMode = gestureText + modus.ToString();
+            gestureMode = gestureText + modusText[modus];
         }
 
 
