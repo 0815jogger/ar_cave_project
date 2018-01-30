@@ -41,9 +41,9 @@ public class arCaveRotateBehaviour : MonoBehaviour
                 this.gameObject.transform.rotation =
                     Quaternion.Euler
                     (
-                        this.gameObject.transform.rotation.x + anglex * 100,
-                        this.gameObject.transform.rotation.y + angley * 100,
-                        this.gameObject.transform.rotation.z + anglez * 100
+                        gameObject.transform.rotation.x + anglex * 100,
+                        gameObject.transform.rotation.y + angley * 100,
+                        gameObject.transform.rotation.z + anglez * 100
                     );
             }
         }
