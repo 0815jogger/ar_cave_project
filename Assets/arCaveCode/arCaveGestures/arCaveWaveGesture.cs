@@ -1,6 +1,7 @@
 ﻿using Microsoft.Kinect;
 using System;
 
+/*
 namespace KinectSimpleGesture
 {
     public class arCaveWaveGesture
@@ -68,3 +69,4 @@ namespace KinectSimpleGesture
         }
     }
 }
+*/

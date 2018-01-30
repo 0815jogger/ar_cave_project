@@ -56,18 +56,18 @@ public class JointPosition : MonoBehaviour
                     {
                         float horizontal =
                             (float)(body.Joints[JointType.HandRight].Position.X
-                            * 0.1);
+                            * 0.01);
 
                         float vertical =
                             (float)(body.Joints[JointType.HandRight].Position.Y
-                            * 0.1);
+                            * 0.01);
 
 
                         if (firstdeep == -1)
                         {
                             firstdeep =
                                 (float)(body.Joints[JointType.HandRight].Position.Z
-                                * 0.1);
+                                * 0.01);
                             Debug.Log(firstdeep);
                             //System.Console.WriteLine(firstdeep);
                         }
@@ -75,7 +75,7 @@ public class JointPosition : MonoBehaviour
 
                         float deep =
                             (float)(body.Joints[JointType.HandRight].Position.Z
-                            * 0.1) - firstdeep;
+                            * 0.01) - firstdeep;
 
                         this.gameObject.transform.position = new Vector3
                             (
