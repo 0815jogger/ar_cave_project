@@ -13,17 +13,17 @@ public class JointPosition : MonoBehaviour
     private HandOpenRecognizer handOpenRecognizer;
 
     private int modus = 0;
+    string[] modusText = { "...", "Translation", "Rotation", "Scale" };
     public string gestureText = "Mode: ";
     public string gestureMode;
 
-    string[] modusText = {"...", "Translation", "Rotation", "Scale" };
     GUIStyle largeFont;
 
 
     // Use this for initialization
     void Start () 
     {
-        gestureMode = gestureText + modus.ToString();
+        gestureMode = gestureText + modusText[modus];
         waveRecognizer = new WaveRecognizer(_bodySourceManager);
         handOpenRecognizer = new HandOpenRecognizer(_bodySourceManager);
 	}
