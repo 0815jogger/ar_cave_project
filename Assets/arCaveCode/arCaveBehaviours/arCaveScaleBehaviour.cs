@@ -38,9 +38,9 @@ public class arCaveScaleBehaviour : MonoBehaviour
 
                 this.gameObject.transform.localScale = new Vector3
                     (
-                        this.gameObject.transform.localScale.x + sizex,
-                        this.gameObject.transform.localScale.y + sizex,
-                        this.gameObject.transform.localScale.z + sizex
+                        gameObject.transform.localScale.x + sizex,
+                        gameObject.transform.localScale.y + sizex,
+                        gameObject.transform.localScale.z + sizex
                     );
             }
         }
