@@ -10,14 +10,25 @@ public class JointPosition : MonoBehaviour
     public float multiplier = 10f;
     public float firstdeep = -1;
     public GameObject mcVoxel;
+    public string gestureText = "Detected Gesture: ";
+    GUIStyle largeFont;
 
     // Use this for initialization
     void Start () 
     {
 	}
-	
-	// Update is called once per frame
-	void Update () 
+
+
+    void OnGUI()
+    {
+        largeFont = new GUIStyle();
+        largeFont.fontSize = 20;
+        largeFont.normal.textColor = Color.red;
+        GUI.Label(new Rect(10, 10, 140, 20), gestureText, largeFont);
+    }
+
+    // Update is called once per frame
+    void Update () 
     {
         if (_bodySourceManager == null)
         {
@@ -43,6 +54,7 @@ public class JointPosition : MonoBehaviour
                 if (body.Joints[JointType.HandLeft].Position.Y > body.Joints[JointType.Head].Position.Y)
                 {
                     Debug.Log("Hey, where's your hand ??");
+                    gestureText += "Translation";
                     _translate.CaveTranslate(this.gameObject);
 
                     /*
