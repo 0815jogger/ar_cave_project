@@ -1,6 +1,6 @@
 ﻿using Windows.Kinect;
 
-public class WaveRecognizer
+public class WaveRecognizer : Recognizer
 {
     private enum HandPositon { Left, Right, None };
     private BodySourceManager bodySoureManager;
@@ -8,49 +8,47 @@ public class WaveRecognizer
     private HandPositon lastPositon;
     private const int WAVES_TIL_ACTIVATED = 7;
 
-    public WaveRecognizer(BodySourceManager bodySoureManager)
+    public WaveRecognizer(BodySourceManager bodySourceManager) : base(bodySourceManager)
     {
-        this.bodySoureManager = bodySoureManager;
         Reset();
     }
 
     private HandPositon GetHandPosition()
     {
-        Body[] data = bodySoureManager.GetData();
-        if (data == null)
+        Body body = this.GetBody();
+        if (body == null)
         {
             return HandPositon.None;
         }
-
-        foreach (Body body in data)
+        if (body.Joints[JointType.HandLeft].Position.Y >
+            body.Joints[JointType.ElbowLeft].Position.Y)
         {
-            if (body == null)
+            // Hand right of elbow
+            if (body.Joints[JointType.HandLeft].Position.X >
+                body.Joints[JointType.ElbowLeft].Position.X)
             {
-                continue;
+                return HandPositon.Right;
             }
-
-            // Hand above elbow
-            if (body.Joints[JointType.HandRight].Position.Y >
-                body.Joints[JointType.ElbowRight].Position.Y)
-            {
-                // Hand right of elbow
-                if (body.Joints[JointType.HandRight].Position.X >
-                    body.Joints[JointType.ElbowRight].Position.X)
-                {
-                    return HandPositon.Right;
-                }
-                return HandPositon.Left;
-            }
-
+            return HandPositon.Left;
         }
-        // Hand dropped
         return HandPositon.None;
     }
 
-    public void Update()
+    public override bool IsActive()
+    {
+        return count >= WAVES_TIL_ACTIVATED;
+    }
+
+    public override void Reset()
+    {
+        count = 0;
+        lastPositon = HandPositon.None;
+    }
+
+    public override void Update()
     {
         HandPositon position = GetHandPosition();
-        if (position == WaveRecognizer.HandPositon.None)
+        if (position == HandPositon.None)
         {
             count = 0;
         }
@@ -61,17 +59,6 @@ public class WaveRecognizer
                 count++;
             }
         }
-        lastPositon = position;   
-    }
-
-    public bool isActivated()
-    {
-        return count >= WAVES_TIL_ACTIVATED;
-    }
-
-    public void Reset()
-    {
-        count = 0;
-        lastPositon = HandPositon.None;
+        lastPositon = position;
     }
 }

@@ -28,7 +28,7 @@ public class JointPosition : MonoBehaviour
         {
             case 0:
                 waveRecognizer.Update();
-                if (waveRecognizer.isActivated())
+                if (waveRecognizer.IsActive())
                 {
                     waveRecognizer.Reset();
                     modus = 1;
