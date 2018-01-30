@@ -34,8 +34,8 @@ public class JointPosition : MonoBehaviour
         largeFont = new GUIStyle();
         largeFont.fontSize = 20;
         largeFont.normal.textColor = Color.red;
-
-        GUI.Label(new Rect(100, 10, 140, 20), gestureMode, largeFont);
+        //GUI.Label(new Rect(10, 10, 140, 20), gestureMode, largeFont);
+        GUI.Label(new Rect(500, 70, 140, 20), gestureMode, largeFont);
     }
 
 
