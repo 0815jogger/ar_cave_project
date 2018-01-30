@@ -6,7 +6,6 @@ public class arCaveScaleBehaviour : MonoBehaviour
     private KinectSensor _Sensor;
     private BodyFrameReader _Reader;
     private Body[] _Data = null;
-    float firstdeep = -1;
     public BodySourceManager _bodySourceManager;
 
     // Update is called once per frame
