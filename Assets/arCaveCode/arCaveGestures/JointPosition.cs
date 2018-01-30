@@ -10,20 +10,34 @@ public class JointPosition : MonoBehaviour
     public float firstdeep = -1;
     public GameObject mcVoxel;
     private WaveRecognizer waveRecognizer;
-
     private int modus = 0;
     private int countWaves = 0;
+    public string gestureText = "Detected Gesture: ";
+    public string gestureMode;
+    GUIStyle largeFont;
+
 
     // Use this for initialization
     void Start () 
     {
+        gestureMode = gestureText + modus.ToString();
         waveRecognizer = new WaveRecognizer(_bodySourceManager);
 	}
+
+
+    void OnGUI()
+    {
+        largeFont = new GUIStyle();
+        largeFont.fontSize = 20;
+        largeFont.normal.textColor = Color.red;
+        GUI.Label(new Rect(10, 10, 140, 20), gestureMode, largeFont);
+    }
 
 	
 	// Update is called once per frame
 	void Update () 
     {
+        
         switch(modus)
         {
             case 0:
@@ -32,6 +46,7 @@ public class JointPosition : MonoBehaviour
                 {
                     waveRecognizer.Reset();
                     modus = 1;
+                    gestureMode = gestureText + modus.ToString();
                 }
                 break;
             case 1:
