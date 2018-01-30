@@ -6,7 +6,7 @@ public class WaveRecognizer : Recognizer
     private BodySourceManager bodySoureManager;
     private int count;
     private HandPositon lastPositon;
-    private const int WAVES_TIL_ACTIVATED = 7;
+    private const int WAVES_TIL_ACTIVATED = 4;
 
     public WaveRecognizer(BodySourceManager bodySourceManager) : base(bodySourceManager)
     {
