@@ -2,15 +2,19 @@
 
 public class WaveRecognizer
 {
-    public enum HandPositon { Left, Right, None };
+    private enum HandPositon { Left, Right, None };
     private BodySourceManager bodySoureManager;
+    private int count;
+    private HandPositon lastPositon;
+    private const int WAVES_TIL_ACTIVATED = 7;
 
     public WaveRecognizer(BodySourceManager bodySoureManager)
     {
         this.bodySoureManager = bodySoureManager;
+        Reset();
     }
 
-    public HandPositon GetHandPosition()
+    private HandPositon GetHandPosition()
     {
         Body[] data = bodySoureManager.GetData();
         if (data == null)
@@ -41,5 +45,33 @@ public class WaveRecognizer
         }
         // Hand dropped
         return HandPositon.None;
+    }
+
+    public void Update()
+    {
+        HandPositon position = GetHandPosition();
+        if (position == WaveRecognizer.HandPositon.None)
+        {
+            count = 0;
+        }
+        else
+        {
+            if (position != lastPositon)
+            {
+                count++;
+            }
+        }
+        lastPositon = position;   
+    }
+
+    public bool isActivated()
+    {
+        return count >= WAVES_TIL_ACTIVATED;
+    }
+
+    public void Reset()
+    {
+        count = 0;
+        lastPositon = HandPositon.None;
     }
 }

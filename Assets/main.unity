@@ -375,7 +375,6 @@ GameObject:
   m_Component:
   - component: {fileID: 656448740}
   - component: {fileID: 656448743}
-  - component: {fileID: 656448745}
   - component: {fileID: 656448741}
   m_Layer: 0
   m_Name: mcVoxel
@@ -432,18 +431,6 @@ MonoBehaviour:
   multiplier: 10
   firstdeep: -1
   mcVoxel: {fileID: 656448739}
---- !u!114 &656448745
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 656448739}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca570a567c7f3094fb0d31fdabf4d63a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bodySourceManager: {fileID: 1626165366}
 --- !u!1 &871087032
 GameObject:
   m_ObjectHideFlags: 0
