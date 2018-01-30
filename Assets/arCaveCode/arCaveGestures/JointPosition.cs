@@ -38,20 +38,17 @@ public class JointPosition : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
     {
-        
-        switch(modus)
+        waveRecognizer.Update();
+        if (waveRecognizer.IsActive())
         {
-            case 0:
-                waveRecognizer.Update();
-                if (waveRecognizer.IsActive())
-                {
-                    waveRecognizer.Reset();
-                    modus = 1;
-                    gestureMode = gestureText + modus.ToString();
-                }
-                break;
+            waveRecognizer.Reset();
+            modus = (modus + 1) % 2;
+            gestureMode = gestureText + modus.ToString();
+        }
+
+        switch (modus)
+        {
             case 1:
-            default:
                 if (handOpenRecognizer.IsActive())
                 {
                     Body body = handOpenRecognizer.GetBody();
