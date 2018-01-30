@@ -13,12 +13,14 @@ public class JointPosition : MonoBehaviour
     private int modus = 0;
     private int countWaves = 0;
     public string gestureText = "Detected Gesture: ";
+    public string gestureMode;
     GUIStyle largeFont;
 
 
     // Use this for initialization
     void Start () 
     {
+        gestureMode = gestureText + modus.ToString();
         waveRecognizer = new WaveRecognizer(_bodySourceManager);
 	}
 
@@ -28,14 +30,14 @@ public class JointPosition : MonoBehaviour
         largeFont = new GUIStyle();
         largeFont.fontSize = 20;
         largeFont.normal.textColor = Color.red;
-        GUI.Label(new Rect(10, 10, 140, 20), gestureText, largeFont);
+        GUI.Label(new Rect(10, 10, 140, 20), gestureMode, largeFont);
     }
 
 	
 	// Update is called once per frame
 	void Update () 
     {
-        gestureText += modus.ToString();
+        
         switch(modus)
         {
             case 0:
@@ -44,6 +46,7 @@ public class JointPosition : MonoBehaviour
                 {
                     waveRecognizer.Reset();
                     modus = 1;
+                    gestureMode = gestureText + modus.ToString();
                 }
                 break;
             case 1:
