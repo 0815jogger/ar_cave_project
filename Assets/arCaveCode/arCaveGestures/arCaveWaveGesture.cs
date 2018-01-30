@@ -1,10 +1,9 @@
-﻿using Microsoft.Kinect;
-using System;
+﻿using System;
+using UnityEngine;
 
-/*
 namespace KinectSimpleGesture
 {
-    public class arCaveWaveGesture
+    public class arCaveWaveGesture : MonoBehaviour
     {
         readonly int WINDOW_SIZE = 50;
 
@@ -12,6 +11,8 @@ namespace KinectSimpleGesture
 
         int _currentSegment = 0;
         int _frameCount = 0;
+
+        public BodySourceManager bodySourceManager;
 
         public event EventHandler GestureRecognized;
 
@@ -32,9 +33,15 @@ namespace KinectSimpleGesture
             };
         }
 
-        public void Update(Skeleton skeleton)
+        public void Start()
         {
-            GesturePartResult result = _segments[_currentSegment].Update(skeleton);
+            this.WaveGesture();
+        }
+
+        public void Update()
+        {
+            GesturePartResult result = _segments[_currentSegment].Update(bodySourceManager);
+            Debug.Log(_currentSegment + ": " + result);
 
             if (result == GesturePartResult.Succeeded)
             {
@@ -69,4 +76,3 @@ namespace KinectSimpleGesture
         }
     }
 }
-*/
