@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Windows.Kinect;
 
-public class ArCaveScaleBehaviour : MonoBehaviour
+public class arCaveScaleBehaviour : MonoBehaviour
 {
     private KinectSensor _Sensor;
     private BodyFrameReader _Reader;

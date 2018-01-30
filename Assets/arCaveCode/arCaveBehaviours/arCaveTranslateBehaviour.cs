@@ -3,16 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 using Windows.Kinect;
 
-public class ArCaveTranslateBehaviour : MonoBehaviour
+public class arCaveTranslateBehaviour : MonoBehaviour
 {
     private KinectSensor _Sensor;
     private BodyFrameReader _Reader;
     private Body[] _Data = null;
     float firstdeep = -1;
-    private BodySourceManager _bodyManager;
+    public GameObject _bodySourceManager;
+   
 
-    public void CaveTranslate(GameObject gameObject)
+    public void CaveTranslate(GameObject gameObject, BodySourceManager _bodyManager)
     {
+        Debug.Log("Hi there");
+
+        if (_bodySourceManager == null)
+        {
+            return;
+        }
+
+        _bodyManager = _bodySourceManager.GetComponent<BodySourceManager>();
+        if (_bodyManager == null)
+        {
+            return;
+        }
+
         Body[] data = _bodyManager.GetData();
         if (data == null)
         {

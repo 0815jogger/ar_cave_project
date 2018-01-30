@@ -7,14 +7,14 @@ public class JointPosition : MonoBehaviour
     public Windows.Kinect.JointType _jointType;
     public GameObject _bodySourceManager;
     private BodySourceManager _bodyManager;
-    private ArCaveTranslateBehaviour _translateBehaviour;
+    public arCaveTranslateBehaviour _translate;
     public float multiplier = 10f;
     public float firstdeep = -1;
+    public GameObject mcVoxel;
 
     // Use this for initialization
     void Start () 
     {
-	
 	}
 	
 	// Update is called once per frame
@@ -24,7 +24,7 @@ public class JointPosition : MonoBehaviour
         {
             return;
         }
-
+        
         _bodyManager = _bodySourceManager.GetComponent<BodySourceManager>();
         if (_bodyManager == null)
         {
@@ -50,8 +50,9 @@ public class JointPosition : MonoBehaviour
                 if (body.Joints[JointType.HandLeft].Position.Y > body.Joints[JointType.Head].Position.Y)
                 {
                     Debug.Log("Hey, where's your hand ??");
-                    //_translateBehaviour.CaveTranslate(this.gameObject);
+                    _translate.CaveTranslate(this.gameObject, _bodyManager);
 
+                    /*
                     if (body.HandRightState == HandState.Open)
                     {
                         float horizontal =
@@ -85,7 +86,7 @@ public class JointPosition : MonoBehaviour
                             );
                         //var pos = body.Joints[_jointType].Position;
                         //this.gameObject.transform.position = new Vector3(pos.X * multiplier, pos.Y * multiplier, pos.Z * multiplier);
-                    }
+                    } */
                 }
                 else
                 {
@@ -104,3 +105,4 @@ public class JointPosition : MonoBehaviour
         }
 	}
 }
+
