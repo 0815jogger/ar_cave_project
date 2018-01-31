@@ -1,7 +1,7 @@
 # Cave-AR-Unity2017
 Unity 2017(3.0.f3) project, that allows the user to control 3d objects via Microsoft Kinect v2 and custom gestures.
 
-### Installation
+## Installation
 
 Before you can built the Unity project files, you need do install and download following tools:
 <ul>
@@ -10,3 +10,6 @@ Before you can built the Unity project files, you need do install and download f
 </ul>
 
 Make sure, that your kinect is properly connected to your USB 3.0 Bus. Import the Kinect.2.0.1410.19000 package via `Assets -> Import Package -> Custom Package`
+
+## Scene
+The demo scene is `main.unity`. All related files are located in [Assets/arCaveCode](Assets/arCaveCode).
