@@ -7,7 +7,6 @@ public class ArCaveTranslateBehaviour : MonoBehaviour
 
     public void CaveTranslate(GameObject gameObject, Body body)
     {
-        Debug.Log("Hi there");
         float horizontal =
             (float)(body.Joints[JointType.HandRight].Position.X
             * 0.05);
@@ -22,7 +21,6 @@ public class ArCaveTranslateBehaviour : MonoBehaviour
             firstdeep =
                 (float)(body.Joints[JointType.HandRight].Position.Z
                 * 0.05);
-            Debug.Log(firstdeep);
         }
 
         float deep =
