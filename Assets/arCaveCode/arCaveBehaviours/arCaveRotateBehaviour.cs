@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using Windows.Kinect;
 
-public class arCaveRotateBehaviour : MonoBehaviour
+public class ArCaveRotateBehaviour : MonoBehaviour
 {
     public void CaveRotate(GameObject gameObject, Body body)
     {

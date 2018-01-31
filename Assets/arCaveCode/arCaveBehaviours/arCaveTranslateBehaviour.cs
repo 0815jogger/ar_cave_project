@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using Windows.Kinect;
 
-public class arCaveTranslateBehaviour : MonoBehaviour
+public class ArCaveTranslateBehaviour : MonoBehaviour
 {
     float firstdeep = -1;
 

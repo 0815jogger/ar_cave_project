@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
 using Windows.Kinect;
 
-public class JointPosition : MonoBehaviour 
+public class Demo : MonoBehaviour 
 {
     public BodySourceManager _bodySourceManager;
 
-    private arCaveTranslateBehaviour _translate = new arCaveTranslateBehaviour();
-    private arCaveRotateBehaviour _rotate = new arCaveRotateBehaviour();
-    private arCaveScaleBehaviour _scale = new arCaveScaleBehaviour();
+    private ArCaveTranslateBehaviour _translate = new ArCaveTranslateBehaviour();
+    private ArCaveRotateBehaviour _rotate = new ArCaveRotateBehaviour();
+    private ArCaveScaleBehaviour _scale = new ArCaveScaleBehaviour();
 
     private WaveRecognizer waveRecognizer;
     private HandOpenRecognizer handOpenRecognizer;
@@ -34,8 +34,8 @@ public class JointPosition : MonoBehaviour
         largeFont = new GUIStyle();
         largeFont.fontSize = 20;
         largeFont.normal.textColor = Color.red;
-        //GUI.Label(new Rect(10, 10, 140, 20), gestureMode, largeFont);
-        GUI.Label(new Rect(500, 70, 140, 20), gestureMode, largeFont);
+        GUI.Label(new Rect(10, 10, 140, 20), gestureMode, largeFont);
+        // GUI.Label(new Rect(500, 70, 140, 20), gestureMode, largeFont);
     }
 
 

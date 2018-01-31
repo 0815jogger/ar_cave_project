@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using Windows.Kinect;
 
-public class arCaveScaleBehaviour : MonoBehaviour
+public class ArCaveScaleBehaviour : MonoBehaviour
 {
     // Update is called once per frame
     public void CaveScale(GameObject gameObject, Body body)
