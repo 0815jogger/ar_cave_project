@@ -3,7 +3,7 @@ Unity 2017(3.0.f3) project, that allows the user to control 3d objects via Micro
 
 ## Installation
 
-Before you can built the Unity project files, you need do install and download following tools:
+Before you can built the Unity project files, you need to install and download following tools:
 <ul>
 <li> https://www.microsoft.com/en-us/download/details.aspx?id=44561 - Microsoft Kinect v2 SDK</li>
 <li> http://go.microsoft.com/fwlink/?LinkID=513177 - Microsoft Kinect Unity Plugin </li>
