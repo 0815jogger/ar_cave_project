@@ -5,11 +5,11 @@ Es existieren vier Modi. Bei dem ersten Modus handelt es sich um einen Pausen Mo
 Mit einer Geste (Winken mit der linken Hand) wird zwischen die 4 Modi hin und her gewechselt.
 Ist der letzte Modi erreicht wird mit einem weiteren Winken in den ersten Modus zurück gesprungen.
 
-## Umsetzung:
+## Umsetzung
 
 Als Basis dieses Projektes wird die Kinect Version 2 verwendet mit dem Kinect-SDK. Mittels dieses SDKs wird die Positionierung des Anwenders in der Cave erfasst. Die oben genannten Behaviours und Gestures werden mit Hilfe der Daten aus dem SDK ermöglicht. Zusätzlich wird der CAVE-Player verwendet, um die Darstellung zu ermöglichen.
 
-## Probleme:
+## Probleme
 
 Der Erfassungsbereich der Kinect Version 2 deckt nicht die komplette Cave ab.
 Daher ist es wichtig, dass die Person direkt vor der Kamera steht.
@@ -20,7 +20,7 @@ Zusätzlich kommt hinzu, dass die Kinect durch den Winkel nicht optimal ausgeric
 Dadurch entsteht ein im Winkel verschobenes Koordinatensystem. Dieses Problem tritt nicht auf, wenn die Kinect zum Testen an den Laptop angeschlossen wird und korrekt horizontal ausgerichtet ist.
 Erschwerend kommt hinzu, dass mehrere Personen schon das Erkennen der Geste und die Manipulation des Objektes fast unmöglich machen.
 
-## Fazit:
+## Fazit
 
 Das Programm kann an einigen Stellen verbessert oder erweitert werden. So kann dies durch weitere Gesten oder weitere Behaviours ausgebaut werden. Durch Vorlage der bisherigen Gesten und Behaviours können diese einfach implementiert werden.
 Eine zusätzliche Idee ist es, dass das zu manipulierende Objekt durch den Anwender ausgewählt werden kann.
